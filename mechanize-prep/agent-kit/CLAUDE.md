@@ -35,7 +35,7 @@ This is a **3-hour timed take-home interview**. After 3 hours, the repo is locke
 
 ## Banned / discouraged libraries
 
-> Fill this in from the take-home README before starting.
+> Fill this in from the task prompt (TASK.md, README.md, or whatever they named it) before starting.
 
 Examples we already know about: **tldraw**, **yjs**, anything that "trivializes" the core assignment.
 
