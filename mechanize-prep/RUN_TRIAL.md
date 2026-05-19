@@ -5,11 +5,12 @@ Simulate the Mechanize take-home in a compressed 2-hour timer, then a code-revie
 ## Setup (before starting the timer)
 
 1. Read [`trial/README.md`](trial/README.md) once, top to bottom — this is the task spec.
-2. Copy the agent kit into the trial directory:
+2. Copy the agent kit (including the `.gitignore`) into the trial directory:
    ```sh
    cd mechanize-prep/trial
-   cp ../agent-kit/CLAUDE.md ../agent-kit/PLAN.md ../agent-kit/DECISIONS.md ../agent-kit/START_PROMPT.md .
+   cp -R ../agent-kit/. .
    ```
+   The trailing `/.` is intentional — it copies hidden files like `.gitignore` too.
 3. Open `trial/CLAUDE.md` and fill in the **Banned / discouraged libraries** section using the list from the task README.
 4. Open `trial/START_PROMPT.md` and replace the `<...>` placeholders.
 
@@ -43,6 +44,7 @@ trial/
 ├── PLAN.md           ← agent writes plan here first
 ├── DECISIONS.md      ← agent appends why-decisions here
 ├── START_PROMPT.md   ← the ignition prompt (already pasted)
+├── .gitignore        ← project junk + kit working files
 └── <agent-built code lives here at the trial dir root>
 ```
 

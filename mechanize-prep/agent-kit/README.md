@@ -1,6 +1,6 @@
 # Agent Kit
 
-Four small drop-in files to keep an AI coding agent on a plan-first workflow with auditable decisions. Built originally for take-home interviews but useful for any greenfield or feature work.
+Drop-in files to keep an AI coding agent on a plan-first workflow with auditable decisions. Built originally for take-home interviews but useful for any greenfield or feature work.
 
 ## The files
 
@@ -10,19 +10,23 @@ Four small drop-in files to keep an AI coding agent on a plan-first workflow wit
 | `PLAN.md` | Template the agent fills in before writing code. Forces a plan-first habit. |
 | `DECISIONS.md` | Running log of non-obvious choices and the *why* behind each. |
 | `START_PROMPT.md` | Opening message to paste into Claude Code. |
+| `.gitignore` | Sensible defaults for Python / Node / Docker projects + ignores the kit working files so they don't accidentally get committed to the project. |
 
 ## Drop-in procedure for any new project
 
 1. `cd` into the project directory (cloned repo, fresh scaffold, whatever).
-2. Copy the four files in:
+2. Copy everything from the kit into the project root, **including the dotfile**:
    ```sh
-   cp <path-to>/agent-kit/*.md .
+   cp -R <path-to>/agent-kit/. .
    ```
+   (The trailing `/.` after `agent-kit` copies hidden files too — `cp agent-kit/*` would miss `.gitignore`.)
 3. Open `CLAUDE.md`, fill in **Stack**, **Commands**, and **Banned libraries**.
 4. Open `START_PROMPT.md`, fill in the `<...>` placeholders.
-5. Launch Claude Code, paste the START_PROMPT contents, run it.
+5. Launch Claude Code from the project root, paste the START_PROMPT contents, run it.
 6. Agent reads the task, writes `PLAN.md`, stops. Review the plan, iterate, approve.
 7. Build. `DECISIONS.md` accumulates as the agent makes non-obvious choices.
+
+> **If the project already has a `.gitignore`**, our copy will overwrite it. Either skip that file (`cp -R agent-kit/*.md .`) or merge the two manually.
 
 ## Design principles
 
