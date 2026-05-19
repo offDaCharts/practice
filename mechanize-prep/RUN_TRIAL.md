@@ -4,13 +4,13 @@ Simulate the Mechanize take-home in a compressed 2-hour timer, then a code-revie
 
 ## Setup (before starting the timer)
 
-1. Read [`trial/TASK.md`](trial/TASK.md) once, top to bottom.
+1. Read [`trial/README.md`](trial/README.md) once, top to bottom — this is the task spec.
 2. Copy the agent kit into the trial directory:
    ```sh
    cd mechanize-prep/trial
    cp ../agent-kit/CLAUDE.md ../agent-kit/PLAN.md ../agent-kit/DECISIONS.md ../agent-kit/START_PROMPT.md .
    ```
-3. Open `trial/CLAUDE.md` and fill in the **Banned / discouraged libraries** section using the list from `TASK.md`.
+3. Open `trial/CLAUDE.md` and fill in the **Banned / discouraged libraries** section using the list from the task README.
 4. Open `trial/START_PROMPT.md` and replace the `<...>` placeholders.
 
 ## Run the trial
@@ -18,7 +18,7 @@ Simulate the Mechanize take-home in a compressed 2-hour timer, then a code-revie
 5. `cd mechanize-prep/trial` and start a fresh Claude Code session there.
 6. **Start your timer (2 hours).**
 7. Paste the filled-in `START_PROMPT.md` contents.
-8. Agent reads `TASK.md` → fills `PLAN.md` → stops for approval.
+8. Agent reads the task README → fills `PLAN.md` → stops for approval.
 9. Iterate on the plan until it's good, then approve and let it build.
 10. **At 2:00 elapsed**, stop. Commit whatever's there.
 
@@ -38,7 +38,7 @@ When you start the trial, `trial/` will contain:
 
 ```
 trial/
-├── TASK.md           ← the prompt (treat as you would a real Mechanize README)
+├── README.md         ← the task spec (mimics a real cloned project repo)
 ├── CLAUDE.md         ← agent guardrails (auto-loaded)
 ├── PLAN.md           ← agent writes plan here first
 ├── DECISIONS.md      ← agent appends why-decisions here
