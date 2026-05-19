@@ -1,50 +1,35 @@
-# Project Context
+# Project
 
-This is a **3-hour timed take-home interview**. After 3 hours, the repo is locked. Immediately after, there is a **1-hour code review call** where I must:
-- Demo the running app
-- Walk through the architecture in 2 minutes
-- Explain any line on demand
-- Modify behavior live in the call
+> One sentence on what this project does and who uses it.
 
-**Therefore: I must understand every line of code in this repo.** Code that I cannot explain on the spot is worse than no code at all.
+## Stack
 
----
+> Language(s), framework(s), data store, deploy target.
 
-## Workflow you (the agent) must follow
+## Commands
 
-1. **Plan first.** Read `PLAN.md` — if empty, fill it in with a short plan and stop. Wait for my approval before writing code.
-2. **Small steps.** After each meaningful change, stop and confirm with me. Do not chain 5 tasks in one go.
-3. **Log decisions.** Every time you make a non-obvious choice (library pick, data model, conflict resolution strategy, etc.), add a 1-line entry to `DECISIONS.md` with the **why**. This is my review prep.
-4. **Commit every 15–20 min.** Use clear messages. We cannot lose work to the timer.
-5. **Pre-flight before declaring done:**
-   - `docker compose up` works from a fresh clone
-   - Happy path works in 2 browser tabs
-   - README updated with run instructions + a short architecture note
+> Fill in once known.
 
----
+- Dev: `...`
+- Test: `...`
+- Build: `...`
+- Lint / format: `...`
 
-## Code style rules
+## How to work here
 
-- **No unexplained magic.** If a line isn't obvious, write a one-line comment with WHY (not WHAT).
-- **Boring beats clever.** Prefer the most straightforward solution that works. No premature abstractions.
-- **Simple state.** Default to `useState` / `useReducer` + WebSocket messages. No Redux, Zustand, etc. unless I explicitly approve.
-- **No try/except swallowing.** Let errors bubble; log them visibly.
-- **Type hints in FastAPI, TypeScript everywhere in React.**
+- **Plan before non-trivial work.** For anything beyond a small change, sketch the approach in `PLAN.md` (or in chat) and confirm direction before writing code. Skip this for obvious one-liners.
+- **Log non-obvious decisions** as you make them — library choice, data model, conflict policy, an explicit tradeoff. Append a one-line entry to `DECISIONS.md` with the **why**.
+- **Make tradeoffs explicit.** "Option A is faster to ship but doesn't handle X; Option B is more correct but adds time." Surface the choice; don't silently pick.
+- **Boring beats clever.** Prefer the most direct solution that works. Introduce abstractions when there's real repetition, not in anticipation.
+- **Verify before declaring done.** Run the project, exercise the happy path end-to-end, and confirm the README still reflects how to run it.
 
----
+## Don't
 
-## Banned / discouraged libraries
+- Don't reach for a library that solves the core problem for you when the point is to build it. See the banned list below.
+- Don't silently expand scope. If you notice unrelated issues, mention them; don't quietly fix them in the same change.
+- Don't swallow errors in empty `try`/`except` (or `catch`) blocks. Let them bubble, or log them where someone will see them.
+- Don't introduce a heavyweight state library (Redux, Zustand, etc.) unless the project already uses one or it's clearly justified.
 
-> Fill this in from the task prompt (TASK.md, README.md, or whatever they named it) before starting.
+### Banned / discouraged libraries
 
-Examples we already know about: **tldraw**, **yjs**, anything that "trivializes" the core assignment.
-
-If you're tempted to reach for a library that does the core task for us, **stop and ask**.
-
----
-
-## When in doubt
-
-- Ask me. A 30-second clarifying question beats 20 minutes building the wrong thing.
-- Surface tradeoffs explicitly: "Option A is faster to ship but doesn't handle concurrent edits well; Option B is more correct but adds 30 min."
-- Never silently change scope.
+> Fill in per project. Examples: `tldraw`, `yjs`, or anything that would do the core assignment for you.
