@@ -1,36 +1,27 @@
 # Plan
 
-> Agent: fill this in before writing any code. Then stop and wait for approval.
+> Fill this in before writing code. Stop and confirm direction before implementing.
 
-## Restated requirements (in my own words)
+## Restated requirements
 
-_What are we actually building? What are the must-haves vs nice-to-haves?_
+_What are we actually building? Must-haves vs nice-to-haves._
 
 ## Architecture sketch
 
-_2–4 lines on how the pieces fit together. Frontend ↔ transport ↔ backend ↔ storage._
+_A few lines on how the pieces fit together._
 
 ## Data model
 
-_What does the shared state look like? What's the unit of update?_
+_The core entities, their shape, and how they relate._
 
-## Real-time strategy
+## Key technical decisions
 
-_WebSocket? SSE? Polling? How do clients reconcile state? What's the conflict policy?_
+_The 2–4 calls that shape the rest of the implementation — transport, storage, state model, etc. Note the alternative you rejected and why._
 
-## Time budget (must total ≤ 3:00)
+## Open questions
 
-- [ ] 0:00–0:15 — Read README twice, fill this plan
-- [ ] 0:15–0:45 — Scaffold (docker compose up, hello world works)
-- [ ] 0:45–1:45 — Core feature happy path end-to-end
-- [ ] 1:45–2:30 — Multi-user / real-time correctness
-- [ ] 2:30–2:50 — Polish + edge cases + README
-- [ ] 2:50–3:00 — Final commit + push
+_Anything I'd want clarified before starting. If none, say "none."_
 
-## Open questions for the human
+## Out of scope
 
-_What clarifications would change the design?_
-
-## Things I'm explicitly NOT doing (and why)
-
-_The deferred / out-of-scope list. Important for the review call: "I would have added X but ran out of time and prioritized Y because Z."_
+_What I'm intentionally not doing, and why. Useful context for whoever reads this later._
