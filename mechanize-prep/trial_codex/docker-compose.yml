@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "${BACKEND_PORT:-8001}:8000"
+    volumes:
+      - ./backend/app:/app/app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "${FRONTEND_PORT:-5174}:5173"
+    environment:
+      - VITE_API_URL=http://localhost:${BACKEND_PORT:-8001}
+      - VITE_WS_URL=ws://localhost:${BACKEND_PORT:-8001}/ws
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - backend
