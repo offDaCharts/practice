@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(180deg, #eef2f7 0%, #f7f9fc 50%, #f7f9fc 100%);
+  min-height: 100vh;
+  color: #1a202c;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  padding: 36px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.app > h1 {
+  margin: 0 0 24px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.column {
+  background: #f1f2f4;
+  border-radius: 10px;
+  padding: 12px;
+  min-height: 260px;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  transition: background 120ms ease;
+}
+
+.column-header {
+  margin: 4px 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.column-count {
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: 11px;
+  color: #334155;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(15, 23, 42, 0.04);
+  font-size: 14px;
+  gap: 8px;
+  cursor: grab;
+  user-select: none;
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+
+.card:hover {
+  box-shadow:
+    0 4px 10px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.card-text {
+  flex: 1;
+  cursor: text;
+  min-width: 0;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.card-edit {
+  flex: 1;
+  font: inherit;
+  border: 1px solid #6366f1;
+  border-radius: 4px;
+  padding: 3px 6px;
+  outline: none;
+  min-width: 0;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.card-delete {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 2px;
+  opacity: 0;
+  transition:
+    opacity 100ms ease,
+    color 100ms ease;
+}
+
+.card:hover .card-delete {
+  opacity: 1;
+}
+
+.card-delete:hover {
+  color: #dc2626;
+}
+
+.add-card {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px dashed transparent;
+  border-radius: 6px;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  color: #475569;
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.add-card::placeholder {
+  color: #94a3b8;
+}
+
+.add-card:hover {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #1a202c;
+}
+
+.add-card:focus {
+  background: white;
+  border-color: #6366f1;
+  border-style: solid;
+  color: #1a202c;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.card-overlay {
+  cursor: grabbing;
+  box-shadow:
+    0 14px 28px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(15, 23, 42, 0.08);
+  transform: rotate(2deg);
+}
+
+.loading {
+  padding: 32px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.banner {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+}
+
+.banner::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
